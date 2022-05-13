@@ -30,7 +30,8 @@ for j in range(0, len(same_list), 2):
     name_img = same_list[j].split('\\')[-1].split('_0')[0]
     num_1 = int(same_list[j].split('\\')[-1].split('_')[-1].split('.png')[0])  # 第几张
     num_2 = int(same_list[j+1].split('\\')[-1].split('_')[-1].split('.png')[0])# 下一张
-    dst.writelines(name_img + ' ' + str(num_1) + ' ' + str(num_2) + '\n')
+    # dst.writelines(name_img + ' ' + str(num_1) + ' ' + str(num_2) + '\n')
+    dst.writelines(name_img.split("/")[-1] + ' ' + str(num_1) + ' ' + str(num_2) + '\n')
     same_flag += 1
     if same_flag >= 3000:
         break
@@ -50,7 +51,7 @@ while True:
             name_img_2 = list2[p - 1].split('\\')[-1].split('_0')[0]
             num_1_2 = int(list2[p - 1].split('\\')[-1].split('_')[-1].split('.png')[0])
             #dst.writelines(list2[p] + ' ' + list2[p - 1] + '\n')
-            dst.writelines(name_img_1 + ' ' + str(num_1_1) + ' ' + name_img_2 + ' ' + str(num_1_2) + '\n')
+            dst.writelines(name_img_1.split("/")[-1] + ' ' + str(num_1_1) + ' ' + name_img_2.split("/")[-1] + ' ' + str(num_1_2) + '\n')
             diff += 1
         if diff >= 3000:
             break
